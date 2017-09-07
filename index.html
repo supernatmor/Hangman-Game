@@ -11,6 +11,11 @@
 	<div class="jumbotron">
 		<h2>Press any key start!!</h2>
 	</div>
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+		<h3><span id="word"><strong></strong></span></h3>
+		</div>
+	</div>
 </div>
 
 
@@ -20,6 +25,7 @@
 
 
 <script> 
+var userText = document.getElementById("word");
 
 //creating array of possible words to guess
 var bank = ["yoda", "deathstar", "lightsaber", "luke", "lei", "han", "chewbacca", "c3p0", "r2d2", "stormtrooper", "alderaan", "tatooine", "endor"];
@@ -33,10 +39,24 @@ for (var i =0; i < bank.length;  i++) {
 //setting the word to be guessed and console for debug
 var rand = bank.length * Math.random();
 var noDec = Math.floor (rand);
-var guess = bank[noDec];
-//console.log(guess);
+var guess = bank[noDec].split("");
+console.log(guess);
+
+//setting number of "_" to be displayed and sending to "word" id
 var gLength = guess.length;
 //console.log(gLength);
+var blanks = "";
+//console.log(blanks);
+for (var c = 0;  c  < gLength; c++) {
+	blanks = "_ " + blanks;
+	//console.log(blanks);
+}
+//displays # of "_" matching length of word to be guessed
+word.textContent = blanks;
+
+
+
+
 
 
 
@@ -46,6 +66,7 @@ document.onkeypress = function(event) {
 letter = event.key;
 //alert(letter);  ----debug purposes
 }
+
 
 
 
