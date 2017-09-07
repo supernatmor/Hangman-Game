@@ -13,19 +13,14 @@
 	</div>
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8">
-		<h3><span id="word"><strong></strong></span></h3>
+		<h3><span id="user-Text"><strong></strong></span></h3>
 		</div>
 	</div>
 </div>
 
 
-
-
-
-
-
 <script> 
-var userText = document.getElementById("word");
+var userText = document.getElementById("user-Text");
 
 //creating array of possible words to guess
 var bank = ["yoda", "deathstar", "lightsaber", "luke", "lei", "han", "chewbacca", "c3p0", "r2d2", "stormtrooper", "alderaan", "tatooine", "endor"];
@@ -39,33 +34,41 @@ for (var i =0; i < bank.length;  i++) {
 //setting the word to be guessed and console for debug
 var rand = bank.length * Math.random();
 var noDec = Math.floor (rand);
-var guess = bank[noDec].split("");
+var guess = bank[noDec].split(""); //word to be guessed
 console.log(guess);
 
 //setting number of "_" to be displayed and sending to "word" id
 var gLength = guess.length;
-//console.log(gLength);
-var blanks = "";
-//console.log(blanks);
+var blanksArray = [];  //created array so can compare user input later
 for (var c = 0;  c  < gLength; c++) {
-	blanks = "_ " + blanks;
-	//console.log(blanks);
+	blanksArray[c]="_ ";
+	//console.log(blanksArray);
 }
+
+
 //displays # of "_" matching length of word to be guessed
-word.textContent = blanks;
-
-
-
-
-
+var blanks = blanksArray.toString();
+//console.log(blanks);
+userText.textContent = blanks;
 
 
 //set variable and tracking for user input
 var letter = "";
 document.onkeypress = function(event) {
 letter = event.key;
-//alert(letter);  ----debug purposes
+//alert(letter);
 }
+
+//compare user input to computer word, change corresponding _ on screen
+for (var i = 0; i < gLength; i++) {
+	if (letter === guess[i]) {
+		alert("you got one right");
+	}
+	else {
+		//alert("you got it wrong");
+	}
+}
+
 
 
 
