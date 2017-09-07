@@ -7,7 +7,11 @@
 
 
 <body>
-<h1>Guess a letter</h1>
+<div class="container">
+	<div class="jumbotron">
+		<h2>Press any key start!!</h2>
+	</div>
+</div>
 
 
 
@@ -26,13 +30,21 @@ for (var i =0; i < bank.length;  i++) {
 	//console.log( bank[i] ) ;
 }
 
+//setting the word to be guessed and console for debug
+var rand = bank.length * Math.random();
+var noDec = Math.floor (rand);
+var guess = bank[noDec];
+//console.log(guess);
+var gLength = guess.length;
+//console.log(gLength);
+
+
+
+//set variable and tracking for user input
 var letter = "";
-
 document.onkeypress = function(event) {
-
 letter = event.key;
-alert(letter);
-
+//alert(letter);  ----debug purposes
 }
 
 
