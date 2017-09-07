@@ -7,13 +7,38 @@
 
 
 <body>
+<h1>Guess a letter</h1>
 
 
 
 
 
 
-<script src="game.js"></script>
-	
+
+<script> 
+
+//creating array of possible words to guess
+var bank = ["yoda", "deathstar", "lightsaber", "luke", "lei", "han", "chewbacca", "c3p0", "r2d2", "stormtrooper", "alderaan", "tatooine", "endor"];
+
+//convert array to uppercase, log to verify
+for (var i =0; i < bank.length;  i++) {
+	bank[i] = bank[i].toUpperCase();
+	//console.log( bank[i] ) ;
+}
+
+var letter = "";
+
+document.onkeypress = function(event) {
+
+letter = event.key;
+alert(letter);
+
+}
+
+
+
+
+</script>
+
 </body>
 </html>
