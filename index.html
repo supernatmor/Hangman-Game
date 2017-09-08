@@ -47,26 +47,34 @@ for (var c = 0;  c  < gLength; c++) {
 
 
 //displays # of "_" matching length of word to be guessed
-var blanks = blanksArray.toString();
-//console.log(blanks);
-userText.textContent = blanks;
+function setBlanks() {
+	var blanks = blanksArray.toString();
+	//console.log(blanks);
+	userText.textContent = blanksArray;
+}
 
 
 //set variable and tracking for user input
 var letter = "";
 document.onkeypress = function(event) {
-letter = event.key;
-//alert(letter);
+letter = event.key.toUpperCase();
+checkLetter();
+console.log(letter)
 }
 
 //compare user input to computer word, change corresponding _ on screen
-for (var i = 0; i < gLength; i++) {
-	if (letter === guess[i]) {
-		alert("you got one right");
+function checkLetter() {
+	for (var count = 0; count < gLength; count++) {
+		console.log(guess[count]);
+		if (letter === guess[count]) {
+			//alert("you got one right");
+			blanksArray[count] = letter;
+		}
+		else {
+			//alert("does not match");
+		}
 	}
-	else {
-		//alert("you got it wrong");
-	}
+	setBlanks();
 }
 
 
