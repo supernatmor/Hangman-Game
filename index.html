@@ -9,18 +9,13 @@
 <body>
 <div class="container">
 	<div class="jumbotron">
-		<h2>Press any key start!!</h2>
-	</div>
-	<div class="row">
-		<div class="col-md-offset-2 col-md-8">
-		<h3><span id="user-Text"><strong></strong></span></h3>
-		</div>
+		<h3 class="text-center"><span id="user-Text"><strong>Press any key to start!!</strong></span></h3>
 	</div>
 </div>
 
 
 <script> 
-var userText = document.getElementById("user-Text");
+var bigText = document.getElementById("user-Text");
 
 //creating array of possible words to guess
 var bank = ["yoda", "deathstar", "lightsaber", "luke", "lei", "han", "chewbacca", "c3p0", "r2d2", "stormtrooper", "alderaan", "tatooine", "endor"];
@@ -36,6 +31,7 @@ var rand = bank.length * Math.random();
 var noDec = Math.floor (rand);
 var guess = bank[noDec].split(""); //word to be guessed
 console.log(guess);
+var missed = 0;
 
 //setting number of "_" to be displayed and sending to "word" id
 var gLength = guess.length;
@@ -50,7 +46,7 @@ for (var c = 0;  c  < gLength; c++) {
 function setBlanks() {
 	var blanks = blanksArray.toString();
 	//console.log(blanks);
-	userText.textContent = blanksArray;
+	bigText.textContent = blanks;
 }
 
 
@@ -64,18 +60,30 @@ console.log(letter)
 
 //compare user input to computer word, change corresponding _ on screen
 function checkLetter() {
+	var match = false; 
 	for (var count = 0; count < gLength; count++) {
 		console.log(guess[count]);
 		if (letter === guess[count]) {
 			//alert("you got one right");
 			blanksArray[count] = letter;
-		}
-		else {
-			//alert("does not match");
+			match = true;
 		}
 	}
 	setBlanks();
+	console.log (match, missed);
+
+	if (match == false) {
+		missed++;
+	}
+	console.log (match, missed);
+
+
+
+	if (missed >=5) {
+	alert ("you lose");
 }
+}
+
 
 
 
