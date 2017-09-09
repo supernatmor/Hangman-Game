@@ -32,6 +32,7 @@ var noDec = Math.floor (rand);
 var guess = bank[noDec].split(""); //word to be guessed
 console.log(guess);
 var missed = 0;
+var right = 0;
 
 //setting number of "_" to be displayed and sending to "word" id
 var gLength = guess.length;
@@ -44,7 +45,7 @@ for (var c = 0;  c  < gLength; c++) {
 
 //displays # of "_" matching length of word to be guessed
 function setBlanks() {
-	var blanks = blanksArray.toString();
+	var blanks = blanksArray.join(" ");
 	//console.log(blanks);
 	bigText.textContent = blanks;
 }
@@ -62,26 +63,28 @@ console.log(letter)
 function checkLetter() {
 	var match = false; 
 	for (var count = 0; count < gLength; count++) {
-		console.log(guess[count]);
 		if (letter === guess[count]) {
 			//alert("you got one right");
 			blanksArray[count] = letter;
 			match = true;
+			right++;
 		}
 	}
 	setBlanks();
-	console.log (match, missed);
-
 	if (match == false) {
 		missed++;
 	}
-	console.log (match, missed);
+	//console.log (match, missed);
 
 
-
+	//win and loss conditions
 	if (missed >=5) {
 	alert ("you lose");
-}
+	}
+	else if ( right >= gLength) {
+		alert("you win");
+	}
+
 }
 
 
