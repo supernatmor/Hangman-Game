@@ -3,28 +3,27 @@
 <head>
 	<title>Hangman</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<style type="text/css">
-		body {
-			background-image: url("assets/images/bg.jpg");
-			color: gold;
-
-		}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 
 <body>
 <div class="container">
+	<div class="row text-center">
+			<h1>Star Wars Hangman</h1>
+	</div>
 	<div class = "row">
-			<h2 class="text-center"><span id="user-Text"><strong>Press any key to start!!</strong></span></h3>
+			<h2 class="text-center sbox"><span id="word"><strong></strong></span></h3>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
-			<h3 class="text-center"><strong>letters guessed (doesn't work yet)</strong></h3>
+		<div class="col-md-6 lbox">
+			<div class="row text-center"><h1>Guessed Letters</div>
+			<h3 class="text-center"><span id="guesses"><strong></strong></span></h3>
 		</div>
-		<div class="col-md-6">
-			<h3 class="text-center"><strong>strikes (doesn't work yet)</strong></h3>
+		<div class="col-md-6 lbox">
+			<h3 class="text-center">Wins<br> <span id="wins"><strong></strong></span></h3><br>
+			<h3 class="text-center">Losses<br><span id="losses"><strong></strong></span></h3><br>
+
 		</div>
 	</div>
 </div>

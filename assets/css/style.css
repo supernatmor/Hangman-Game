@@ -1,0 +1,17 @@
+body {
+	background-image: url("../images/bg.jpg");
+	color: gold;
+
+}
+.sbox {
+	border-style: solid; 
+	border-width: 3px;
+	border-color: gold;
+	height: 50px;
+}
+.lbox {
+	border-style: solid; 
+	border-width: 3px;
+	border-color: gold;
+	height: 250px;
+}
